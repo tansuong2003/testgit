@@ -36,6 +36,9 @@ namespace De1_NguyenTanSuong_21133078
             this.button2 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -45,7 +48,7 @@ namespace De1_NguyenTanSuong_21133078
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(28, 14);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
@@ -56,7 +59,7 @@ namespace De1_NguyenTanSuong_21133078
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(139, 84);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 28;
@@ -68,7 +71,7 @@ namespace De1_NguyenTanSuong_21133078
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(231, 147);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 62;
             this.dataGridView3.RowTemplate.Height = 28;
@@ -115,11 +118,42 @@ namespace De1_NguyenTanSuong_21133078
             this.checkBox2.Text = "checkBox2";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(197, 461);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(369, 394);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(546, 391);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(80, 17);
+            this.checkBox3.TabIndex = 9;
+            this.checkBox3.Text = "checkBox3";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 504);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button2);
@@ -127,7 +161,7 @@ namespace De1_NguyenTanSuong_21133078
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -148,6 +182,9 @@ namespace De1_NguyenTanSuong_21133078
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }
 
