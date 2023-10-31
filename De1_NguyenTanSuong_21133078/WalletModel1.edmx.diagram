@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="12b9131347c7441cb1506a50fbb9de92" Name="Diagram1">
+        <EntityTypeShape EntityType="WalletDBFirst1Model.Hang" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalletDBFirst1Model.LoaiVi" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalletDBFirst1Model.Vi" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="WalletDBFirst1Model.FK__Vi__MaHang__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="WalletDBFirst1Model.FK__Vi__MaLoai__29572725" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

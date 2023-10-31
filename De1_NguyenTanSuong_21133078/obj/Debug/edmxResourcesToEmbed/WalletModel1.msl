@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WalletDBFirst1ModelStoreContainer" CdmEntityContainer="WalletDBFirst1Entities">
+    <EntitySetMapping Name="Hangs">
+      <EntityTypeMapping TypeName="WalletDBFirst1Model.Hang">
+        <MappingFragment StoreEntitySet="Hang">
+          <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+          <ScalarProperty Name="TenHang" ColumnName="TenHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiVis">
+      <EntityTypeMapping TypeName="WalletDBFirst1Model.LoaiVi">
+        <MappingFragment StoreEntitySet="LoaiVi">
+          <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vis">
+      <EntityTypeMapping TypeName="WalletDBFirst1Model.Vi">
+        <MappingFragment StoreEntitySet="Vi">
+          <ScalarProperty Name="MaVi" ColumnName="MaVi" />
+          <ScalarProperty Name="TenVi" ColumnName="TenVi" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="MauSac" ColumnName="MauSac" />
+          <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+          <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

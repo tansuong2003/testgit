@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WalletDBFirst1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Hang">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="Int32" Nullable="false" />
+    <Property Name="TenHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vis" Relationship="Self.FK__Vi__MaHang__2A4B4B5E" FromRole="Hang" ToRole="Vi" />
+  </EntityType>
+  <EntityType Name="LoaiVi">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="Int32" Nullable="false" />
+    <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vis" Relationship="Self.FK__Vi__MaLoai__29572725" FromRole="LoaiVi" ToRole="Vi" />
+  </EntityType>
+  <EntityType Name="Vi">
+    <Key>
+      <PropertyRef Name="MaVi" />
+    </Key>
+    <Property Name="MaVi" Type="Int32" Nullable="false" />
+    <Property Name="TenVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gia" Type="Double" />
+    <Property Name="MauSac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoai" Type="Int32" />
+    <Property Name="MaHang" Type="Int32" />
+    <NavigationProperty Name="Hang" Relationship="Self.FK__Vi__MaHang__2A4B4B5E" FromRole="Vi" ToRole="Hang" />
+    <NavigationProperty Name="LoaiVi" Relationship="Self.FK__Vi__MaLoai__29572725" FromRole="Vi" ToRole="LoaiVi" />
+  </EntityType>
+  <Association Name="FK__Vi__MaHang__2A4B4B5E">
+    <End Role="Hang" Type="Self.Hang" Multiplicity="0..1" />
+    <End Role="Vi" Type="Self.Vi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hang">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="Vi">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vi__MaLoai__29572725">
+    <End Role="LoaiVi" Type="Self.LoaiVi" Multiplicity="0..1" />
+    <End Role="Vi" Type="Self.Vi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiVi">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="Vi">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WalletDBFirst1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hangs" EntityType="Self.Hang" />
+    <EntitySet Name="LoaiVis" EntityType="Self.LoaiVi" />
+    <EntitySet Name="Vis" EntityType="Self.Vi" />
+    <AssociationSet Name="FK__Vi__MaHang__2A4B4B5E" Association="Self.FK__Vi__MaHang__2A4B4B5E">
+      <End Role="Hang" EntitySet="Hangs" />
+      <End Role="Vi" EntitySet="Vis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vi__MaLoai__29572725" Association="Self.FK__Vi__MaLoai__29572725">
+      <End Role="LoaiVi" EntitySet="LoaiVis" />
+      <End Role="Vi" EntitySet="Vis" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

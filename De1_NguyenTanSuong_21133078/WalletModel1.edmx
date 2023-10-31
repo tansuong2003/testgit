@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WalletDBFirst1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hang">
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="int" Nullable="false" />
+          <Property Name="TenHang" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoaiVi">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="int" Nullable="false" />
+          <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vi">
+          <Key>
+            <PropertyRef Name="MaVi" />
+          </Key>
+          <Property Name="MaVi" Type="int" Nullable="false" />
+          <Property Name="TenVi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gia" Type="float" />
+          <Property Name="MauSac" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaLoai" Type="int" />
+          <Property Name="MaHang" Type="int" />
+        </EntityType>
+        <Association Name="FK__Vi__MaHang__2A4B4B5E">
+          <End Role="Hang" Type="Self.Hang" Multiplicity="0..1" />
+          <End Role="Vi" Type="Self.Vi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hang">
+              <PropertyRef Name="MaHang" />
+            </Principal>
+            <Dependent Role="Vi">
+              <PropertyRef Name="MaHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vi__MaLoai__29572725">
+          <End Role="LoaiVi" Type="Self.LoaiVi" Multiplicity="0..1" />
+          <End Role="Vi" Type="Self.Vi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiVi">
+              <PropertyRef Name="MaLoai" />
+            </Principal>
+            <Dependent Role="Vi">
+              <PropertyRef Name="MaLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WalletDBFirst1ModelStoreContainer">
+          <EntitySet Name="Hang" EntityType="Self.Hang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiVi" EntityType="Self.LoaiVi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vi" EntityType="Self.Vi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Vi__MaHang__2A4B4B5E" Association="Self.FK__Vi__MaHang__2A4B4B5E">
+            <End Role="Hang" EntitySet="Hang" />
+            <End Role="Vi" EntitySet="Vi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vi__MaLoai__29572725" Association="Self.FK__Vi__MaLoai__29572725">
+            <End Role="LoaiVi" EntitySet="LoaiVi" />
+            <End Role="Vi" EntitySet="Vi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WalletDBFirst1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Hang">
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="Int32" Nullable="false" />
+          <Property Name="TenHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vis" Relationship="Self.FK__Vi__MaHang__2A4B4B5E" FromRole="Hang" ToRole="Vi" />
+        </EntityType>
+        <EntityType Name="LoaiVi">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="Int32" Nullable="false" />
+          <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vis" Relationship="Self.FK__Vi__MaLoai__29572725" FromRole="LoaiVi" ToRole="Vi" />
+        </EntityType>
+        <EntityType Name="Vi">
+          <Key>
+            <PropertyRef Name="MaVi" />
+          </Key>
+          <Property Name="MaVi" Type="Int32" Nullable="false" />
+          <Property Name="TenVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="Double" />
+          <Property Name="MauSac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaLoai" Type="Int32" />
+          <Property Name="MaHang" Type="Int32" />
+          <NavigationProperty Name="Hang" Relationship="Self.FK__Vi__MaHang__2A4B4B5E" FromRole="Vi" ToRole="Hang" />
+          <NavigationProperty Name="LoaiVi" Relationship="Self.FK__Vi__MaLoai__29572725" FromRole="Vi" ToRole="LoaiVi" />
+        </EntityType>
+        <Association Name="FK__Vi__MaHang__2A4B4B5E">
+          <End Role="Hang" Type="Self.Hang" Multiplicity="0..1" />
+          <End Role="Vi" Type="Self.Vi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hang">
+              <PropertyRef Name="MaHang" />
+            </Principal>
+            <Dependent Role="Vi">
+              <PropertyRef Name="MaHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vi__MaLoai__29572725">
+          <End Role="LoaiVi" Type="Self.LoaiVi" Multiplicity="0..1" />
+          <End Role="Vi" Type="Self.Vi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiVi">
+              <PropertyRef Name="MaLoai" />
+            </Principal>
+            <Dependent Role="Vi">
+              <PropertyRef Name="MaLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WalletDBFirst1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Hangs" EntityType="Self.Hang" />
+          <EntitySet Name="LoaiVis" EntityType="Self.LoaiVi" />
+          <EntitySet Name="Vis" EntityType="Self.Vi" />
+          <AssociationSet Name="FK__Vi__MaHang__2A4B4B5E" Association="Self.FK__Vi__MaHang__2A4B4B5E">
+            <End Role="Hang" EntitySet="Hangs" />
+            <End Role="Vi" EntitySet="Vis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vi__MaLoai__29572725" Association="Self.FK__Vi__MaLoai__29572725">
+            <End Role="LoaiVi" EntitySet="LoaiVis" />
+            <End Role="Vi" EntitySet="Vis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WalletDBFirst1ModelStoreContainer" CdmEntityContainer="WalletDBFirst1Entities">
+          <EntitySetMapping Name="Hangs">
+            <EntityTypeMapping TypeName="WalletDBFirst1Model.Hang">
+              <MappingFragment StoreEntitySet="Hang">
+                <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+                <ScalarProperty Name="TenHang" ColumnName="TenHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiVis">
+            <EntityTypeMapping TypeName="WalletDBFirst1Model.LoaiVi">
+              <MappingFragment StoreEntitySet="LoaiVi">
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vis">
+            <EntityTypeMapping TypeName="WalletDBFirst1Model.Vi">
+              <MappingFragment StoreEntitySet="Vi">
+                <ScalarProperty Name="MaVi" ColumnName="MaVi" />
+                <ScalarProperty Name="TenVi" ColumnName="TenVi" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="MauSac" ColumnName="MauSac" />
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
